@@ -55,7 +55,11 @@ public:
 
 int main(){
 	vector<b> v1;
-	for(int r1=1;r1<5;r1++)for(int r2=r1;r2<5;r2++)for(int r3=r2;r3<5;r3++)for(int r4=r3;r4<5;r4++)for(int r5=r4;r5<5;r5++){
+	for(int r1=1;r1<5;r1++)
+	for(int r2=1;r2<5;r2++)
+	for(int r3=1;r3<5;r3++)
+	for(int r4=1;r4<5;r4++)
+	for(int r5=1;r5<5;r5++){
 		b a(r1,r2,r3,r4,r5);
 		v1.push_back(a);
 	}
@@ -69,10 +73,11 @@ int main(){
 		}
 	}
 	int rank=1;
+	FILE *f=fopen("D:/pt.txt","w");
 	while(v1.empty()!=true){
 		b *tmp=&v1[v1.size()-1];
 		v1.pop_back();
-		printf("排名：%d,倍数：%d,%d,%d,%d,%d,可获得pt:%d,消耗LP:%d,平均每LP获得pt:%f\n",rank++,tmp->r[0],tmp->r[1],tmp->r[2],tmp->r[3],tmp->r[4],tmp->totalpt,tmp->totalLP,tmp->averagePt);
+		fprintf(f,"排名：%d,倍数：%d,%d,%d,%d,%d,可获得pt:%d,消耗LP:%d,平均每LP获得pt:%f\n",rank++,tmp->r[0],tmp->r[1],tmp->r[2],tmp->r[3],tmp->r[4],tmp->totalpt,tmp->totalLP,tmp->averagePt);
 	}
 	return 0;
 }
